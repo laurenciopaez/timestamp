@@ -4,6 +4,7 @@
 // init project
 var express = require("express");
 var app = express();
+const path = require('path');
 const port = process.env.PORT || 3030
 const compression = require('compression')
 const helmet = require('helmet')
@@ -26,7 +27,7 @@ app.use((err, req, res, next) => {
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "./views/index.html");
+    res.sendFile(path.join(__dirname, "views", "index.html"));
   });
 
 var apiRoutes = require("./api");
